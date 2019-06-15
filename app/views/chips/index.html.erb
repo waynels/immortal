@@ -1,0 +1,26 @@
+<h1>我的碎片</h1>
+<p content="content">
+  <%= link_to '编辑碎片', edit_chips_path, class: 'btn btn-sm btn-primary'  %>
+</p>
+<table class="table table-bordered table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Shikigami</th>
+      <th>Amount</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @chips.each do |chip| %>
+      <tr>
+        <td><%= chip.shikigami.name %></td>
+        <td><%= chip.amount %></td>
+        <td><%= chip.status %></td>
+        <td><%= link_to 'Destroy', chip, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-outline-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

@@ -1,0 +1,32 @@
+<h1>式神列表</h1>
+<p content="content">
+  <%= link_to '新增式神', new_shikigami_path, class: 'btn btn-sm btn-primary'  %>
+</p>
+
+<table class="table table-bordered table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Level</th>
+      <th>Limited</th>
+      <th>记录碎片</th>
+      <th>Options</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shikigamis.each do |shikigami| %>
+      <tr>
+        <td><%= shikigami.name %></td>
+        <td><%= shikigami.level %></td>
+        <td><%= shikigami.limited %></td>
+        <td><%= shikigami.show %></td>
+        <td>
+          <%= link_to 'Edit', edit_shikigami_path(shikigami), class: 'btn btn-sm btn-outline-success', 'data-turbolinks': "false" %>
+          <%= link_to 'Destroy', shikigami, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-outline-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

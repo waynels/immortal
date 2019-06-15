@@ -1,0 +1,24 @@
+  <%= form_with(model: chip, url: chips_path, method: :post, local: true) do |form| %>      
+    <% @chips.each do |chip| %>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-4 ">
+            <%= form.label chip.shikigami.name %>
+            <%= hidden_field_tag 'chip[]shikigami_id', chip.shikigami_id %>
+          </div>
+
+          <div class="col-md-4">
+            <%= number_field_tag 'chip[]amount', chip.amount, class: 'form-control' %>
+          </div>
+
+          <div class="col-md-4">
+            <%= select_tag 'chip[]status', options_for_select(Chip.statuses.keys, chip.status), {class: 'form-control'} %>
+          </div>
+        </div>
+      </div>
+    <%end%>
+    <div class="actions">
+      <%= form.submit '保存', class: 'btn btn-primary' %>
+      <%= link_to 'Back', chips_path, class: 'btn btn-info' %>
+    </div>
+  <% end %>

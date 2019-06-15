@@ -1,13 +1,16 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Huts</h1>
+<h1>寮名单</h1>
 
-<table>
-  <thead>
+<p content="content">
+  <%= link_to 'New Hut', new_hut_path, class: 'btn btn-sm btn-primary' %>
+</p>
+
+<table class="table table-bordered table-striped table-hover">
+  <thead class='thead-dark'>
     <tr>
       <th>Name</th>
       <th>Level</th>
-      <th colspan="3"></th>
+      <th>Options</th>
     </tr>
   </thead>
 
@@ -16,14 +19,10 @@
       <tr>
         <td><%= hut.name %></td>
         <td><%= hut.level %></td>
-        <td><%= link_to 'Show', hut %></td>
-        <td><%= link_to 'Edit', edit_hut_path(hut) %></td>
-        <td><%= link_to 'Destroy', hut, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+        <%= link_to 'Edit', edit_hut_path(hut), class: 'btn btn-sm btn-outline-success'  %>
+        <%= link_to 'Destroy', hut, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-outline-danger' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Hut', new_hut_path %>

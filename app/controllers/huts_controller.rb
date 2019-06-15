@@ -28,7 +28,7 @@ class HutsController < ApplicationController
 
     respond_to do |format|
       if @hut.save
-        format.html { redirect_to @hut, notice: 'Hut was successfully created.' }
+        format.html { redirect_to huts_url, notice: 'Hut was successfully created.' }
         format.json { render :show, status: :created, location: @hut }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class HutsController < ApplicationController
   def update
     respond_to do |format|
       if @hut.update(hut_params)
-        format.html { redirect_to @hut, notice: 'Hut was successfully updated.' }
+        format.html { redirect_to huts_url, notice: 'Hut was successfully updated.' }
         format.json { render :show, status: :ok, location: @hut }
       else
         format.html { render :edit }
